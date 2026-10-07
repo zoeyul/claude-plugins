@@ -12,12 +12,16 @@ React Native·Expo 같은 모바일 앱 프로젝트용.
 ## 설치
 
 ```bash
-claude plugin marketplace add git@github-zoeyul:zoeyul/claude-plugins.git
+claude plugin marketplace add zoeyul/claude-plugins
 claude plugin install feature-loop@zoeyul-plugins
 ```
 
-비공개 레포라 SSH 키가 있어야 한다. `owner/repo` 짧은 이름은 기본 `github.com` 키로 인증하므로
-계정이 여럿이면 SSH 별칭 주소로 추가한다.
+레포 전원에게 등록하려면 그 레포에서 `--scope project` 로 추가하고 생성된 `.claude/settings.json` 을
+커밋한다. 폴더를 신뢰한 사람에게 마켓플레이스가 등록된다.
+
+GitHub SSH 키가 없으면 `CLAUDE_CODE_PLUGIN_PREFER_HTTPS=1` 로 HTTPS 로 받는다.
+
+수정 사항을 받으려면 `version` 을 올린다. 같은 버전이면 설치한 사람은 캐시된 사본을 계속 쓴다.
 
 ## 프로젝트에 붙이기
 
