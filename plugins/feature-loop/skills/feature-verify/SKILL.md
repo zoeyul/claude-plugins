@@ -17,7 +17,7 @@ description: >
 
 - 작업 문서가 있고 승인됐다. 없으면 `feature-spec` 부터 한다
 - 구현이 끝났다
-- 프로젝트 루트의 `.feature-loop.json` 에서 `appDir`·`testingGuide` 를 읽는다
+- `<appDir>`·테스트 기준은 `${CLAUDE_PLUGIN_ROOT}/references/project.md` 대로 프로젝트에서 찾는다
 
 ## 절차
 
@@ -26,7 +26,7 @@ description: >
 
 ### jest 행
 
-`testingGuide` 가 있으면 그 작성 기준을 따른다.
+프로젝트에 테스트 기준이 있으면 그 작성 기준을 따른다.
 
 1. 테스트를 쓴다. 구현이 아니라 사용자가 보는 것(렌더된 트리·콜백·바깥으로 나가는 명령)을 단언한다
 2. 프로젝트의 테스트 명령으로 통과를 확인한다

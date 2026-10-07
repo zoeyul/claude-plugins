@@ -9,6 +9,8 @@ React Native·Expo 같은 모바일 앱 프로젝트용.
 | `feature-verify` | 작업 문서의 검증 표대로 jest·maestro 를 돌리고 근거가 있는 항목만 체크한다 |
 | `verify-screen` | 시뮬레이터·에뮬레이터 화면을 maestro 로 조작·확인한다 |
 
+흐름: `feature-spec` → 구현(프로젝트에 시안 대조 스킬이 있으면 직후에 부른다) → `feature-verify`.
+
 ## 설치
 
 ```bash
@@ -25,28 +27,22 @@ GitHub SSH 키가 없으면 `CLAUDE_CODE_PLUGIN_PREFER_HTTPS=1` 로 HTTPS 로 �
 
 ## 프로젝트에 붙이기
 
+설정 파일은 없다. 플러그인이 켜지는 범위는 설치 범위(user·project·local)가 정하고, 앱 폴더·앱 ID·
+실행 명령·작업 문서 위치는 스킬이 프로젝트 파일(`app.json`·`package.json`·`CLAUDE.md` 등)과
+기기에서 찾는다 — [references/project.md](references/project.md). 애매하면 그 자리에서 묻는다.
+
+프로젝트가 직접 갖춰야 하는 것은 maestro 검증용뿐이다.
+
 1. **maestro 설치** — `<plugin>/skills/verify-screen/scripts/setup-e2e.sh` (JVM 기반, 각자 설치)
-2. **프로젝트 설정** — 루트에 `.feature-loop.json`
-
-   ```json
-   {
-     "appDir": "apps/<app>",
-     "appId": "<bundle id / package name>",
-     "specsDir": "apps/<app>/docs/specs",
-     "testingGuide": "apps/<app>/docs/testing.md"
-   }
-   ```
-
-   `testingGuide` 는 선택. 없으면 스킬의 기본 표로 층을 정하고, 테스트를 레포에 남길지는 사람에게 묻는다
-3. **`.maestro/`** — `<appDir>/.maestro/` 에 `verify-screen/templates/` 의 `config.yaml`, `common/go-home.yaml` 을 두고 채운다
-4. **테스트 계정** — `<appDir>/.maestro/.env` 에 본인 dev 계정. 다른 곳에서 쓰지 않는 비밀번호만
+2. **`.maestro/`** — `<appDir>/.maestro/` 에 `verify-screen/templates/` 의 `config.yaml`, `common/go-home.yaml` 을 두고 채운다
+3. **테스트 계정** — `<appDir>/.maestro/.env` 에 본인 dev 계정. 다른 곳에서 쓰지 않는 비밀번호만
 
    ```
    MAESTRO_TEST_EMAIL='...'
    MAESTRO_TEST_PASSWORD='...'
    ```
 
-5. **gitignore** — `.maestro/.env`, `.maestro/reports/`
+4. **gitignore** — `.maestro/.env`, `.maestro/reports/`
 
 ### 로그인 서브플로우
 

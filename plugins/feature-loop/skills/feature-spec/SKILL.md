@@ -11,16 +11,10 @@ description: >
 기능 작업 루프의 첫 단계다. 여기서 정한 체크리스트와 검증 층이 그대로 `feature-verify`
 의 작업 목록이 된다.
 
-## 프로젝트 설정
+## 프로젝트 값
 
-프로젝트 루트의 `.feature-loop.json` 을 읽는다.
-
-```json
-{ "specsDir": "<작업 문서 폴더>", "testingGuide": "<테스트 기준 문서 — 선택>" }
-```
-
-- `specsDir` 가 없으면 사용자에게 묻고 파일을 만들자고 제안한다
-- 폴더가 처음이면 `${CLAUDE_SKILL_DIR}/templates/specs-readme.md` 를 `<specsDir>/README.md` 로 둔다
+작업 문서 폴더(`<specsDir>`)·테스트 기준·`<appDir>` 은 `${CLAUDE_PLUGIN_ROOT}/references/project.md` 대로 프로젝트에서 찾는다.
+폴더가 처음이면 `${CLAUDE_SKILL_DIR}/templates/specs-readme.md` 를 `<specsDir>/README.md` 로 둔다.
 
 ## 입력
 
@@ -88,7 +82,7 @@ maestro 로 볼 상태마다 그 상태의 테스트 계정이 필요하다. 계
 
 ### 4. 검증 층을 정한다
 
-항목마다 층을 하나 고른다. `testingGuide` 가 있으면 그 기준을 따른다. 없으면 아래 표를 쓴다.
+항목마다 층을 하나 고른다. 프로젝트에 테스트 기준이 있으면 그것을 따른다. 없으면 아래 표를 쓴다.
 
 | 항목 성격 | 층 |
 |---|---|

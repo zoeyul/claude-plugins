@@ -11,15 +11,9 @@ description: >
 이 스킬은 **떠 있는 앱을 조작하고 확인한다.** 앱 빌드·실행은 프로젝트의 앱 실행 스킬이나
 문서가 있으면 그것을 따른다.
 
-## 프로젝트 설정
+## 프로젝트 값
 
-프로젝트 루트의 `.feature-loop.json` 을 읽는다.
-
-```json
-{ "appDir": "<.maestro/ 가 놓인 앱 폴더>", "appId": "<bundle id / package name>" }
-```
-
-없으면 두 값을 사용자에게 묻고 파일을 만들자고 제안한다. 아래에서 `<appDir>`·`<appId>` 는 이 값이다.
+`<appDir>`·`<appId>` 는 `${CLAUDE_PLUGIN_ROOT}/references/project.md` 대로 프로젝트와 기기에서 찾는다.
 
 `<appDir>/.maestro/` 구조(처음이면 `${CLAUDE_SKILL_DIR}/templates/` 를 복사해 시작한다):
 
