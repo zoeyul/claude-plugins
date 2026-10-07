@@ -1,0 +1,13 @@
+# 출발 화면으로 되돌린다. 플로우가 어느 화면에서 시작하든 같은 곳에서 출발하게 하는 준비 단계다.
+# 검증하려는 경로에는 쓰지 않는다 — 그건 탭·버튼을 눌러 간다.
+appId: <appId>
+---
+- openLink: "<scheme>://<home-path>"
+
+# iOS 가 커스텀 스킴을 열 때 확인 창을 띄울 수 있다. 없으면 약 7초 찾다가 넘어간다
+# (maestro 가 조건의 요소를 기본 7초 찾는다).
+- runFlow:
+    when:
+      visible: "Open"
+    commands:
+      - tapOn: "Open"

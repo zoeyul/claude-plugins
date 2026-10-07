@@ -1,0 +1,14 @@
+{
+  "name": "zoeyul-plugins",
+  "description": "개인 Claude Code 플러그인",
+  "owner": {
+    "name": "zoeyul"
+  },
+  "plugins": [
+    {
+      "name": "feature-loop",
+      "source": "./plugins/feature-loop",
+      "description": "작업 문서(스펙) → 구현 → 검증(jest·maestro) 루프. 모바일 앱 프로젝트용"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "feature-loop",
+  "version": "0.1.0",
+  "description": "작업 문서(스펙) → 구현 → 검증(jest·maestro) 루프. 모바일 앱 프로젝트용",
+  "author": {
+    "name": "zoeyul"
+  }
+}
